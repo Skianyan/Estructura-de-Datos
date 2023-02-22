@@ -1,23 +1,68 @@
-import Node from "./node.js";
+import Nodo from "./nodo.js";
 
-export default class SimpleLinkedList{
-    const(head=null){
-        this.head = head
+export default class ListaEnlazada{
+    constructor(cabeza = null){
+        this.cabeza = cabeza;                
     }
 
-    insert(data){
-        let nuevo
-        nuevo = new Node(data)
-        nuevo.next = this.head
-        this.head = nuevo
+    /**
+     * Este método insertar los nodos al inicio de la lista     * 
+     * @param {*} data El parámetro data puede tomar cualquier valor
+     */
+    insertarInicio(data){
+        let nuevo;
+        nuevo = new Nodo(data);
+        nuevo.enlace = this.cabeza;
+        this.cabeza = nuevo;
     }
 
-    print(){
-        do{
+    /**
+     * Este método inserta entre dos nodos en una lista enlazada simple
+     * @param {*} valorInsertado Es el valor que se insertará en la lista
+     * @param {*} buscar Indica detrás de qué nodo se debe insertar
+     */
+    insertarEntre(valorInsertado, buscar){
+
+    }
+
+    /**
+     * 
+     * @param {*} dato Es el dato a eliminar de la lista enlazada
+     */
+    eliminar(entrada){
+        let temp = this.cabeza;
+        let encontrado = false
+        let actual = temp;
+        let anterior = null;
+        while( (actual !== null) && !encontrado ){
+            encontrado = (actual.data === entrada);
+            if( !encontrado ){
+                anterior = actual;
+                actual = actual.enlace;
+            }
+            if( actual !== null ){
+                if( actual === this.cabeza ){
+                    this.cabeza = actual.enlace;                    
+                } else{
+                    anterior.enlace = actual.enlace;
+                }
+            }
+        }
+        console.log(`Nodo eliminado....`);
+    }
+    
+    impresion(){
+        let temp = this.cabeza;
+        let valores = '';
         
-        }while ()
+        do{
+            valores += temp.data + '-> ';
+            temp = temp.enlace;
+        }while(temp !== null);
+        console.log(valores + 'null')
     }
 }
+
 
 // INSERCION AL FINAL DE LA LISTA
 // La insercion al final de la lista es menos eficiente debido a que normalmente,
