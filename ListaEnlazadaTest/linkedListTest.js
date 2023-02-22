@@ -7,7 +7,7 @@ class Node {
   }
 
 // Clase LinkedList
-export default class LinkedList {
+class LinkedList {
     constructor() {
       this.head = null;
       this.size = 0;
@@ -102,7 +102,7 @@ export default class LinkedList {
     printList() {
       let current = this.head;
       while (current) {
-        console.log("Node " + current.data);
+        console.log("Data: " + current.data);
         current = current.next;
       }
       console.log("\n");

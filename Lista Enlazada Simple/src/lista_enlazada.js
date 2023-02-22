@@ -1,67 +1,118 @@
-import Nodo from "./nodo.js";
+import Node from "./nodo.js";
 
-export default class ListaEnlazada{
-    constructor(cabeza = null){
-        this.cabeza = cabeza;                
+export default // Clase LinkedList
+class LinkedList {
+    constructor() {
+      this.head = null;
+      this.size = 0;
     }
-
-    /**
-     * Este método insertar los nodos al inicio de la lista     * 
-     * @param {*} data El parámetro data puede tomar cualquier valor
-     */
-    insertarInicio(data){
-        let nuevo;
-        nuevo = new Nodo(data);
-        nuevo.enlace = this.cabeza;
-        this.cabeza = nuevo;
+  
+    // Insertar elemento al principio de la lista
+    insertAtBeginning(data) {
+      let temp
+      temp = new Node(data)
+      temp.next = this.head
+      this.head = temp
     }
-
-    /**
-     * Este método inserta entre dos nodos en una lista enlazada simple
-     * @param {*} valorInsertado Es el valor que se insertará en la lista
-     * @param {*} buscar Indica detrás de qué nodo se debe insertar
-     */
-    insertarEntre(valorInsertado, buscar){
-
-    }
-
-    /**
-     * 
-     * @param {*} dato Es el dato a eliminar de la lista enlazada
-     */
-    eliminar(entrada){
-        let temp = this.cabeza;
-        let encontrado = false
-        let actual = temp;
-        let anterior = null;
-        while( (actual !== null) && !encontrado ){
-            encontrado = (actual.data === entrada);
-            if( !encontrado ){
-                anterior = actual;
-                actual = actual.enlace;
-            }
-            if( actual !== null ){
-                if( actual === this.cabeza ){
-                    this.cabeza = actual.enlace;                    
-                } else{
-                    anterior.enlace = actual.enlace;
-                }
-            }
+  
+    // Insertar elemento al final de la lista
+    insertAtEnd(data) {
+      let node = new Node(data);
+      let current;
+  
+      // Si la lista está vacía, agregar el nuevo nodo como head
+      if (!this.head) {
+        this.head = node;
+      } else {
+        current = this.head;
+  
+        while (current.next) {
+          current = current.next;
         }
-        console.log(`Nodo eliminado....`);
+  
+        current.next = node;
+      }
+  
+      this.size++;
     }
-    
-    impresion(){
-        let temp = this.cabeza;
-        let valores = '';
+  
+    // Insertar elemento en una posición específica
+    insertAt(data, index) {
+      // Si el índice está fuera de rango
+      if (index > 0 && index > this.size) {
+        return;
+      }
+  
+      // Insertar al principio
+      if (index === 0) {
+        this.insertAtBeginning(data);
+        return;
+      }
+  
+      const node = new Node(data);
+      let current, previous;
+  
+      current = this.head;
+      let count = 0;
+  
+      while (count < index) {
+        previous = current;
+        count++;
+        current = current.next;
+      }
+  
+      node.next = current;
+      previous.next = node;
+  
+      this.size++;
+    }
+    //NEW
+    // Eliminar elemento en una posición específica
+    removeData(data){
+      let current = this.head;
+      let found = false
+      let previous = null;
+        while(current!==null && !found)
+        found= (current.data === data)
         
-        do{
-            valores += temp.data + '-> ';
-            temp = temp.enlace;
-        }while(temp !== null);
-        console.log(valores + 'null')
     }
-}
+
+    removeFrom(index) {
+      // Si el índice está fuera de rango
+      if (index > 0 && index > this.size) {
+        return;
+      }
+  
+      let current = this.head;
+      let previous;
+      let count = 0;
+  
+      // Eliminar el primer elemento
+      if (index === 0) {
+        this.head = current.next;
+      } else {
+        while (count < index) {
+          count++;
+          previous = current;
+          current = current.next;
+        }
+        previous.next = current.next;
+      }
+      this.size--;
+    }
+  
+    // Imprimir la lista
+    printList() {
+    let temp = this.head;
+    let values = '';
+
+    do{
+            values += temp.data + '-> ';
+            temp = temp.next;
+        }while(temp !== null);
+        console.log(values + 'null')
+    }
+  }
 
 
 // INSERCION AL FINAL DE LA LISTA
@@ -101,4 +152,5 @@ export default class ListaEnlazada{
 // la direccion del siguiente nodo.
 // 4. La memoria del nodo se libera, dejando que todo esté referenciado.
 
-//
+//TO-DO fix eliminar "hacer target dato no el index"
+//TO-DO fix insertar "insertar antes del dato no el index"

@@ -1,7 +1,6 @@
-export default class Nodo {
-    constructor(data){
-        this.data = data;
-        this.enlace = null;
+export default class Node {
+    constructor(data, next=null) {
+      this.data = data;
+      this.next = next;
     }
-}
- 
+  }
