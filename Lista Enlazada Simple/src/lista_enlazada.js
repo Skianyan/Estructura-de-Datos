@@ -35,8 +35,25 @@ class LinkedList {
   
       this.size++;
     }
-  
-    // Insertar elemento en una posición específica
+    //NEW
+    // Insertar elemento en una posición específica relativa a un dato insertado
+
+    insertAfter(value,data){
+      let current = this.head
+      let previous = null
+      while(current!=null){
+        if(value===current.data){
+            const temp = new Node(data);
+            temp.next = current.next;
+            current.next = temp;
+        }
+        else
+        previous = current
+        current = current.next
+      }
+    } 
+
+    // Insertar elemento en una posición específica relativa a su posicion
     insertAt(data, index) {
       // Si el índice está fuera de rango
       if (index > 0 && index > this.size) {
@@ -70,11 +87,22 @@ class LinkedList {
     // Eliminar elemento en una posición específica
     removeData(data){
       let current = this.head;
-      let found = false
       let previous = null;
-        while(current!==null && !found)
-        found= (current.data === data)
-        
+
+        while(current != null){
+          if (current.data === data){
+            if (previous == null){
+              this.head = current.next
+            } else{
+              previous.next = current.next
+            }
+            this.size--
+            return current.data
+          }
+          previous = current
+          current = current.next
+        }
+        return null
     }
 
     removeFrom(index) {

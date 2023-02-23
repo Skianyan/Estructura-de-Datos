@@ -5,9 +5,11 @@ let list = new LinkedList();
 list.insertAtBeginning(10);
 list.insertAtBeginning(70);
 list.insertAtBeginning(5);
+list.removeData(5);
+list.insertAtBeginning(5);
 list.printList();
 
-list.removeData(5)
+list.insertAfter(70,25)
 list.printList()
 
 /* 
