@@ -1,4 +1,5 @@
 import LinkedList  from "./src/lista_enlazada.js";
+import sortingMethods from "./src/lista_ordenada.js";
 
 let list = new LinkedList();
 
@@ -10,6 +11,9 @@ list.insertAtBeginning(5);
 list.printList();
 
 list.insertAfter(70,25)
+list.printList()
+
+list.bubbleSort()
 list.printList()
 
 /* 

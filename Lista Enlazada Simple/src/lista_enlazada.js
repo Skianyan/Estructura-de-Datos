@@ -19,7 +19,6 @@ class LinkedList {
     insertAtEnd(data) {
       let node = new Node(data);
       let current;
-  
       // Si la lista está vacía, agregar el nuevo nodo como head
       if (!this.head) {
         this.head = node;
