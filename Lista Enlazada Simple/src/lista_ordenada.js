@@ -13,7 +13,7 @@ bubbleSort(){
     while(copy !== null){
         cat = copy.next
         while(cat !== null){
-            if(copy.data<cat.data){
+            if(copy.data>cat.data){
                 let temp = copy.data
                 copy.data = cat.data
                 cat.data = temp

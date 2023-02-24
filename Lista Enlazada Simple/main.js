@@ -1,39 +1,19 @@
 import sortedList from "./src/lista_ordenada.js" ;
 
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
 let list = new sortedList();
 
+for(let i=0;i<100000;i++){
+    list.insertAtBeginning(getRandomInt(50000))
+}
 
-list.insertAtBeginning(10);
-list.insertAtBeginning(70);
-list.insertAtBeginning(5);
-list.removeData(5);
-list.insertAtBeginning(5);
-list.printList();
-
-list.insertAfter(70,25)
-list.printList()
-
+var startTime = performance.now()
 list.bubbleSort()
+var endTime = performance.now()
 list.printList()
 
-/* 
-list.insertAtBeginning(10);
-list.insertAtBeginning(70);
-list.insertAtBeginning(5);
-list.insertAtEnd(1);
-list.printList();
-
-list.insertAtEnd(1000);
-list.printList();
-
-
-// list.removeFrom(1);
-// list.printList();
-
-list.insertAt(200,1);
-list.printList();
-
-list.insertAtBeginning(500);
-list.insertAtBeginning(600);
-list.insertAtBeginning(700);
-list.printList(); */
+console.log(`Call to do Something took: ${endTime - startTime} milliseconds`)
