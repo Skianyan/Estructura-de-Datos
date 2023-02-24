@@ -1,19 +1,19 @@
 import LinkedList from "./lista_enlazada.js";
 
-// Sort Burbuja
-export default
-class sortingMethods extends LinkedList{  
+export default // Sort Burbuja
+class sortedList extends LinkedList{  
 
     constructor(){
         super(null)
     }
 
 bubbleSort(){
-    let copy = this.head.data
-    let cat
+    let copy = this.head
+    let cat 
     while(copy !== null){
-        while((cat = copy.next)){
-            if(copy.data>cat.data){
+        cat = copy.next
+        while(cat !== null){
+            if(copy.data<cat.data){
                 let temp = copy.data
                 copy.data = cat.data
                 cat.data = temp

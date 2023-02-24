@@ -1,7 +1,7 @@
-import LinkedList  from "./src/lista_enlazada.js";
-import sortingMethods from "./src/lista_ordenada.js";
+import sortedList from "./src/lista_ordenada.js" ;
 
-let list = new LinkedList();
+let list = new sortedList();
+
 
 list.insertAtBeginning(10);
 list.insertAtBeginning(70);

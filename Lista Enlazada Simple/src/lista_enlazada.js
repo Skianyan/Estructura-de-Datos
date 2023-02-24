@@ -139,6 +139,7 @@ class LinkedList {
         }while(temp !== null);
         console.log(values + 'null')
     }
+    
   }
 
 
