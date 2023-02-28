@@ -24,4 +24,15 @@ bubbleSort(){
     }
 }
 
+selectSort(){
+    let indiceMenor, i, j, n
+    n = a.lenght
+    for (i=0 ; i < n-1; i++){
+        indiceMenor = i
+        for(j=i+1;j<n; j++){
+            
+        }
+    }
+}
+
 }
