@@ -8,18 +8,20 @@ class LinkedList {
     }
   
     // Insertar elemento al principio de la lista
+    // Insert node at start of the list
     insertAtBeginning(data) {
       let temp
       temp = new Node(data)
       temp.next = this.head
       this.head = temp
     }
-  
+    
     // Insertar elemento al final de la lista
+    // Inserts node at the end of the list
     insertAtEnd(data) {
       let node = new Node(data);
       let current;
-      // Si la lista está vacía, agregar el nuevo nodo como head
+      // If list is empty, add new node as head
       if (!this.head) {
         this.head = node;
       } else {
@@ -36,7 +38,7 @@ class LinkedList {
     }
     //NEW
     // Insertar elemento en una posición específica relativa a un dato insertado
-
+    // Inserts node after the specified node
     insertAfter(value,data){
       let current = this.head
       let previous = null
@@ -52,14 +54,15 @@ class LinkedList {
       }
     } 
 
-    // Insertar elemento en una posición específica relativa a su posicion
+    // Insertar elemento en una posición específica relativa
+    // Inserts node in a specific position
     insertAt(data, index) {
-      // Si el índice está fuera de rango
+      // If index is out of range
       if (index > 0 && index > this.size) {
         return;
       }
   
-      // Insertar al principio
+      // Insert at Beginning condition
       if (index === 0) {
         this.insertAtBeginning(data);
         return;
@@ -82,8 +85,8 @@ class LinkedList {
   
       this.size++;
     }
-    //NEW
-    // Eliminar elemento en una posición específica
+
+    // Erases node the first node with the specified data from list
     removeData(data){
       let current = this.head;
       let previous = null;
@@ -105,7 +108,7 @@ class LinkedList {
     }
 
     removeFrom(index) {
-      // Si el índice está fuera de rango
+      // Used if index is out of range
       if (index > 0 && index > this.size) {
         return;
       }
@@ -114,7 +117,7 @@ class LinkedList {
       let previous;
       let count = 0;
   
-      // Eliminar el primer elemento
+      // Erases the first element
       if (index === 0) {
         this.head = current.next;
       } else {
@@ -127,8 +130,17 @@ class LinkedList {
       }
       this.size--;
     }
+
+    // Gets Previous Node
+    getPrevNode(node) {
+      let current = this.head;
+      while (current && current.next !== node) {
+        current = current.next;
+      }
+      return current;
+    }
   
-    // Imprimir la lista
+    // Prints the Simple Linked List
     printList() {
     let temp = this.head;
     let values = '';
@@ -142,6 +154,7 @@ class LinkedList {
     
   }
 
+// Algorithm notes
 
 // INSERCION AL FINAL DE LA LISTA
 // La insercion al final de la lista es menos eficiente debido a que normalmente,

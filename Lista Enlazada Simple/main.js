@@ -1,30 +1,38 @@
 import sortedList from "./src/lista_ordenada.js" ;
 
-
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
-  function getCount() {
-    var temp = this.head;
-    var count = 0;
-    while (temp != null) {
-        count++;
-        temp = temp.next;
-    }
-    return count;
-}
+  function msToTime(duration) {
+    var milliseconds = Math.floor((duration % 1000) / 100),
+      seconds = Math.floor((duration / 1000) % 60),
+      minutes = Math.floor((duration / (1000 * 60)) % 60),
+      hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+  
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+  
+    return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+  }
 
-let list = new sortedList();
 
-for(let i=0;i<10;i++){
-    list.insertAtBeginning(getRandomInt(50))
-}
+const list = new sortedList();
 
-var startTime = performance.now()
-list.selectSort()
-var endTime = performance.now()
+var listStartTime = performance.now()
+for(let i=0;i<100000;i++){
+    list.insertAtBeginning(getRandomInt(20000))
+} 
+var listEndTime = performance.now()
+console.log(`Creating the linked list took: ${msToTime(listEndTime - listStartTime)} milliseconds`)
+
+
+
+var sortStartTime = performance.now()
+list.sortWithSelect()
+var sortEndTime = performance.now()
 list.printList()
-console.log(getCount)
 
-console.log(`Call to do Something took: ${endTime - startTime} milliseconds`)
+
+console.log(`Sorting the linked list took: ${msToTime(sortEndTime - sortStartTime)} milliseconds`)
