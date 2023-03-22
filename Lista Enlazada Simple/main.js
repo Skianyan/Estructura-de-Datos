@@ -21,7 +21,7 @@ function getRandomInt(max) {
 const list = new sortedList();
 
 var listStartTime = performance.now()
-for(let i=0;i<100000;i++){
+for(let i=0;i<10000;i++){
     list.insertAtBeginning(getRandomInt(20000))
 } 
 var listEndTime = performance.now()

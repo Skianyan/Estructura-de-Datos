@@ -25,10 +25,15 @@ var listStartTime = performance.now()
   list.dInsertAtBeginning(1)
   list.dInsertAtBeginning(2)
   list.dInsertAtBeginning(3)
-  list.dInsertAtBeginning(2)
   list.dInsertAtBeginning(4)
-  list.dInsertAtBeginning(6)
   list.dInsertAtBeginning(5)
+  list.dInsertAtBeginning(6)
+  list.dInsertAtBeginning(7)
+  list.dInsertAtBeginning(8)
+  list.dInsertAtBeginning(9)
+  list.dInsertAtBeginning(10)
+  list.dInsertAtBeginning(5)
+
 /* for(let i=0;i<100;i++){
     list.dInsertAtBeginning(getRandomInt(20))
 }  */
@@ -41,6 +46,7 @@ var listEndTime = performance.now()
 var sortStartTime = performance.now()
 list.sortWithSelect()
 var sortEndTime = performance.now()
+list.printListR()
 list.printList()
 
 

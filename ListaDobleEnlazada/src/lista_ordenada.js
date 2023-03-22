@@ -1,8 +1,8 @@
-import LinkedList from "./lista_enlazada.js";
+import DLinkedList from "./lista_enlazada.js";
 import Node from "./nodo.js";
 
 export default // Sort Burbuja
-class sortedList extends LinkedList{  
+class sortedList extends DLinkedList{  
 
     constructor(){
         super(null)

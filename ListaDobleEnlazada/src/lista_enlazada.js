@@ -187,7 +187,16 @@ class LinkedList {
         }while(temp !== null);
         console.log(values + 'null')
     }
-    
+    printListR() {
+      let temp = this.tail;
+      let values = '';
+  
+      do{
+              values +=  ' <-' + temp.data;
+              temp = temp.prev;
+          }while(temp !== null);
+          console.log('null' + values )
+      }
   }
 
 // Algorithm notes
