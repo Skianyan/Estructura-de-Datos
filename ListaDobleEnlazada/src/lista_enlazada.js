@@ -9,7 +9,26 @@ class LinkedList {
     }
     
     dInsertAtBeginning(data) {
-      this.length++;
+    let newnode = new Node(data)
+    if(this.head === null && this.tail===null){
+      this.head = newnode
+      this.tail = newnode
+    } 
+    if (newnode.data < this.head.data){
+      let temp = this.head
+      this.head = newnode
+      newnode.next = temp
+      temp.prev = newnode
+    }
+
+    if (newnode.data > this.head.data){
+      let temp = this.tail
+      this.tail = newnode
+      newnode.prev = temp
+      temp.next = newnode
+    }
+
+      /*     this.length++;
       let temp = new Node(data)
 
       if (this.tail){
@@ -21,7 +40,7 @@ class LinkedList {
 
       this.head = this.tail = temp
       return temp
-
+ */
     }
 
     // Insertar elemento al principio de la lista

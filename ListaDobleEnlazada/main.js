@@ -21,11 +21,13 @@ const list = new sortedList();
 
 var listStartTime = performance.now()
 
-//Creacion de la lista 
+//Creacion de la lista
   list.dInsertAtBeginning(1)
   list.dInsertAtBeginning(2)
   list.dInsertAtBeginning(3)
+  list.dInsertAtBeginning(2)
   list.dInsertAtBeginning(4)
+  list.dInsertAtBeginning(6)
   list.dInsertAtBeginning(5)
 /* for(let i=0;i<100;i++){
     list.dInsertAtBeginning(getRandomInt(20))
