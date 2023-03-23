@@ -20,23 +20,26 @@ function msToTime(duration) {
 const list = new sortedList();
 
 var listStartTime = performance.now()
+// Single circle linked list creacion
+  list.scInsert(5)
 
-//Creacion de la lista
-  list.dInsertAtBeginning(1)
-  list.dInsertAtBeginning(2)
-  list.dInsertAtBeginning(3)
-  list.dInsertAtBeginning(4)
-  list.dInsertAtBeginning(5)
-  list.dInsertAtBeginning(6)
-  list.dInsertAtBeginning(7)
-  list.dInsertAtBeginning(8)
-  list.dInsertAtBeginning(9)
-  list.dInsertAtBeginning(10)
-  list.dInsertAtBeginning(5)
-
+//Creacion de la lista definida
+/*   list.dInsertSort(1)
+  list.dInsertSort(2)
+  list.dInsertSort(3)
+  list.dInsertSort(4)
+  list.dInsertSort(5)
+  list.dInsertSort(6)
+  list.dInsertSort(7)
+  list.dInsertSort(8)
+  list.dInsertSort(9)
+  list.dInsertSort(10)
+  list.dInsertSort(5) */
+//Creacion de lista aleatoria  
 /* for(let i=0;i<100;i++){
-    list.dInsertAtBeginning(getRandomInt(20))
+    list.dInsertSort(getRandomInt(20))
 }  */
+
 // ------------
 var listEndTime = performance.now()
 

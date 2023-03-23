@@ -1,4 +1,5 @@
 import DLinkedList from "./lista_enlazada.js";
+import SCLinkedList from "./lista_enlazada.js";
 import Node from "./nodo.js";
 
 export default // Sort Burbuja
