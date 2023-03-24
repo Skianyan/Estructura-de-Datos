@@ -24,13 +24,8 @@ var listStartTime = performance.now()
  // list.scInsert(5)
 
 //Creacion de la lista definida
-  list.dInsertSort(1)
-  list.dInsertSort(4)
-  list.dInsertSort(8)
-  list.dInsertSort(6)
-  list.dInsertSort(10)
-  list.dInsertSort(5) 
-  list.dInsertSort(8) 
+  list.scInsert(1)
+
   
 //Creacion de lista aleatoria  
 /* for(let i=0;i<100;i++){
@@ -45,7 +40,6 @@ var listEndTime = performance.now()
 
 var sortStartTime = performance.now()
 var sortEndTime = performance.now()
-list.printListR()
 list.printList()
 
 

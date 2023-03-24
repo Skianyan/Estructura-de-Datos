@@ -1,23 +1,6 @@
 import Node from "./nodo.js";
 
 export default // Clase LinkedList
-
-class SCLinkedList {
-  constructor() {
-    this.head = null;
-    this.tail = null;
-    this.size = 0;
-  }
-
-  scInsert(data){
-    let newnode = new Node(data)
-    if(this.head === null){
-      this.head=newnode
-    }
-
-  }
-}
-
 class DLinkedList {
     constructor() {
       this.head = null;
@@ -27,37 +10,30 @@ class DLinkedList {
     
     dInsertSort(data) {
     let newnode = new Node(data)
-    if(this.head === null && this.tail===null){
+    if(!this.head){
       this.head = newnode
       this.tail = newnode
     } 
-    if (newnode.data < this.head.data){
-      let temp = this.head
+    else if (newnode.data < this.head.data){
+      newnode.next = this.head
+      this.head.prev = newnode
       this.head = newnode
-      newnode.next = temp
-      temp.prev = newnode
     }
-
-    if (newnode.data > this.head.data){
-      let temp = this.tail
+    else if (newnode.data > this.tail.data){
+      newnode.prev = this.tail
+      this.tail.next = newnode
       this.tail = newnode
+    }
+    else{
+      let temp = this.head
+      while(temp.next && temp.next.data < newnode.data){
+        temp = temp.next
+      }
       newnode.prev = temp
+      newnode.next = temp.next
+      temp.next.prev = newnode
       temp.next = newnode
     }
-
-      /*     this.length++;
-      let temp = new Node(data)
-
-      if (this.tail){
-        this.tail.next = temp;
-        temp.prev = this.tail;
-        this.tail = temp;
-        return temp;
-      }
-
-      this.head = this.tail = temp
-      return temp
- */
     }
 
     // Insertar elemento al principio de la lista
