@@ -25,6 +25,9 @@ var listStartTime = performance.now()
 
 //Creacion de la lista definida
   list.scInsert(1)
+  list.scInsert(3)
+  list.scInsert(5)
+  list.scInsert(4)
 
   
 //Creacion de lista aleatoria  
